@@ -1,8 +1,11 @@
 import React from 'react'
+import ProductDetail from '../../Views/ProductDetail/ProductDetail'
 
 function ItemDetailContainer() {
-  return (
+  return (<>
     <div>ItemDetailContainer</div>
+    <ProductDetail />
+    </>
   )
 }
 
