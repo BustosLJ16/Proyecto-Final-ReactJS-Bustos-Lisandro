@@ -3,13 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/Firebase.js';
 import ItemCount from '../../Components/ItemCount/ItemCount.jsx';
+import { useCart } from '../../Context/CartContext/CartContext.jsx';
 
 const ProductDetail = () => {
-  const { key } = useParams(); // Obtengo el valor de key desde la URL.
+  const { key } = useParams();
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart(); // Uso el addToCart de mi contexto
 
-  // Función que obtiene el producto según la "key" numérica referida.
   const getProductByKey = async (key) => {
     const productCollection = collection(db, 'ProductList');
     const q = query(productCollection, where('key', '==', Number(key)));
@@ -25,7 +26,7 @@ const ProductDetail = () => {
     } catch (error) {
       console.log('Error al obtener el producto:', error);
     } finally {
-      setLoading(false); // Finaliza la carga.
+      setLoading(false);
     }
   };
 
@@ -37,8 +38,7 @@ const ProductDetail = () => {
     return (
       <div className="container my-5 text-center">
         <h2>Cargando producto...</h2>
-        <div className="spinner-border" role="status">
-        </div>
+        <div className="spinner-border" role="status"></div>
       </div>
     );
   }
@@ -77,7 +77,7 @@ const ProductDetail = () => {
             <p>Categoría/s: {product.category}, {product.type}.</p>
             <hr />
             <div>
-              <ItemCount stock={product.stock}/>
+              <ItemCount stock={product.stock} addToCart={addToCart} product={product} />
             </div>
           </div>
         </div>
