@@ -1,12 +1,13 @@
 import React from 'react'
 import './ProductCard.css'
+import 'animate.css'
 import { Link } from 'react-router-dom' 
 
 function ProductCard({ prod }) {
   return (
   <>
     <div className="col-3 card-container">
-      <div className="card border-0">
+      <div className="card animate__animated animate__zoomIn border-0">
         <Link to={`/item/${prod.key}`}>
           <img
             src={prod.image}

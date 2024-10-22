@@ -1,13 +1,13 @@
-// Importaciones necesarias
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/Firebase.js';
+import ItemCount from '../../Components/ItemCount/ItemCount.jsx';
 
 const ProductDetail = () => {
   const { key } = useParams(); // Obtengo el valor de key desde la URL.
-  const [product, setProduct] = useState(null); // Estado para almacenar el producto.
-  const [loading, setLoading] = useState(true); // Estado para manejar la carga.
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true); 
 
   // Función que obtiene el producto según la "key" numérica referida.
   const getProductByKey = async (key) => {
@@ -25,7 +25,7 @@ const ProductDetail = () => {
     } catch (error) {
       console.log('Error al obtener el producto:', error);
     } finally {
-      setLoading(false); // Finaliza la carga, ya sea que haya tenido éxito o no.
+      setLoading(false); // Finaliza la carga.
     }
   };
 
@@ -76,9 +76,8 @@ const ProductDetail = () => {
             <p>Descripción: {product.description}.</p>
             <p>Categoría/s: {product.category}, {product.type}.</p>
             <hr />
-            <div className="">
-              <h5>Stock Disponible: {product.stock}</h5>
-              <h1>agregar botones</h1>
+            <div>
+              <ItemCount stock={product.stock}/>
             </div>
           </div>
         </div>

@@ -14,10 +14,10 @@ export default function ProductList() {
   return (
     <div className='container my-5'>
       <div className="row">
-        {myProds.length > 0 ? (
+        {myProds.size !== 0 ? (
           myProds.map(prod => <ProductCard key={prod.key} prod={prod} />) // Envio mis datos para hacer una Card.
         ) : (
-          <p>No hay Productos en esta categoría</p>
+          <p>No hay Productos Para Mostrarte Ahora</p>
         )}
       </div>
     </div>
