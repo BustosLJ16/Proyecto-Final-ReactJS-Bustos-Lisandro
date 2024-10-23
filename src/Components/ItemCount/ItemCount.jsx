@@ -22,18 +22,17 @@ const ItemCount = ({ stock, addToCart, product }) => {
     return stock - count;
   };
 
-  const newStock = stockValueIndicator(); // Variable que me devuelte el Number para determinar el nuevo valor de Stock
-
   const handleAddToCart = () => {
+    const newStock = stock - count; // Aquí obtienes el nuevo stock después de agregar al carrito
     addToCart(product, count);
-    updateProducts(product.id, {stock:newStock}) //Actualizo mi Product
+    updateProducts(product.id, { stock: newStock }); // Actualizas el producto en Firebase
     Swal.fire({
       icon: 'success',
       title: 'Felicitaciones!',
       text: `Ya agregaste ${count} unidades de ${product.title} al Carrito`,
     });
-    reset(); // Reseteo el contador del carrito una vez agregado el articulo
-  };
+    reset(); // Reseteas el contador del carrito
+};
 
   return (
     <div>

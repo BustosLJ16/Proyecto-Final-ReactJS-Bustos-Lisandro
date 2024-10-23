@@ -43,13 +43,16 @@ export default function AddOrders() {
     return (
         <>
             <div>AddOrders</div>
+            {formData.name || formData.lastName ||formData.email || formData.phone ? (
+            <>
+                <h5 className='text-center'>2. Envie su orden de compra.</h5>
+                <div className="d-flex justify-content-center align-items-center m-2">
+                    <button onClick={handleclick} className='btn btn-dark p-2 px-3 m-3'>
+                        Enviar nueva Orden de Compra
+                    </button>
+                </div>
 
-            <div className="d-flex justify-content-center align-items-center m-2">
-                <button onClick={handleclick} className='btn btn-dark p-2 m-3'>
-                    Enviar nueva Orden de Compra
-                </button>
-            </div>
-
+            <h5 className='text-center'>3. Revise el estado de su orden.</h5>
             <div className="d-flex justify-content-center align-items-center m-2">
                 {orderId ? (
                     <div className='bg-secondary-subtle px-3 pt-3 rounded-4'>
@@ -66,6 +69,7 @@ export default function AddOrders() {
                     </div>
                 )}
             </div>
+            </>):("")}
         </>
     );
 }

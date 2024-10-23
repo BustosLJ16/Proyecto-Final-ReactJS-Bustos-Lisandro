@@ -21,16 +21,6 @@ const FormData = () => {
         const email2 = inputEmail2Ref.current.value.trim();
         const phone = inputPhoneRef.current.value.trim();
 
-        // Validar si hay campos vacíos.
-        if (!name || !lastName || !email || !email2 || !phone) {
-            Swal.fire({
-                icon: "error",
-                title: "Lo sentimos...",
-                text: "Por favor, Llena los campos con tu información.",
-            });
-            return;
-        }
-
         // Validar campos vacíos y mostrar mensajes específicos.
         if (!name) {
             Swal.fire({
@@ -101,7 +91,9 @@ const FormData = () => {
         <>
             <div>FormData</div>
             <div className="d-flex justify-content-center align-items-center m-2">
+            
                 <form id="formData" className="justify-content-center" onSubmit={handleSubmit}>
+                    <h5 className='text-center'>1. Llene con sus Datos.</h5>
                     <div className="col-auto py-2">
                         <input
                             type="text"
