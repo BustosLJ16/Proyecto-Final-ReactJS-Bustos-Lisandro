@@ -16,19 +16,13 @@ const Navbar = () => {
                     <div className="col-5 d-flex align-items-center justify-content-center">
                         <ul className="nav p-2 bg-light rounded-pill">
                             <li className="nav-item">
-                                <a className="nav-link">
-                                    <Link className='text-decoration-none text-dark' to={'/category/componentes'}>Componentes</Link>
-                                </a>
+                                <Link className='nav-link text-decoration-none text-dark' to={'/category/componentes'}>Componentes</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">
-                                    <Link className='text-decoration-none text-dark' to={'/category/pantallas'}>Pantallas</Link>
-                                </a>
+                                <Link className='nav-link text-decoration-none text-dark' to={'/category/pantallas'}>Pantallas</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">
-                                    <Link className='text-decoration-none text-dark' to={'/category/perifericos'}>Periféricos</Link>
-                                </a>
+                                <Link className='nav-link text-decoration-none text-dark' to={'/category/perifericos'}>Periféricos</Link>
                             </li>
                         </ul>
                     </div>

@@ -1,0 +1,9 @@
+.orderParagraph{
+    font-size: larger;
+    align-items: center;
+    display: flex;
+}
+
+.orderSpan{
+    color: white;
+}

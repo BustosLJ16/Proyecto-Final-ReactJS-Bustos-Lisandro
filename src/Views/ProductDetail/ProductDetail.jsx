@@ -14,12 +14,13 @@ const ProductDetail = () => {
   const getProductByKey = async (key) => {
     const productCollection = collection(db, 'ProductList');
     const q = query(productCollection, where('key', '==', Number(key)));
-
+  
     try {
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
-        const productData = querySnapshot.docs[0].data();
-        setProduct(productData);
+        const productDoc = querySnapshot.docs[0]; // Aquí obtenemos el documento
+        const productData = productDoc.data();
+        setProduct({ ...productData, id: productDoc.id }); // Guardamos el ID junto con los datos del producto
       } else {
         console.log('No se encontró el producto');
       }
@@ -29,6 +30,7 @@ const ProductDetail = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     getProductByKey(key);

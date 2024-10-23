@@ -1,9 +1,12 @@
 import React from 'react';
 import { useCart } from '../../Context/CartContext/CartContext.jsx';
+import AddOrders from '../../Components/AddOrders/AddOrders.jsx';
+import FormData from '../../Components/FormData/FormData.jsx';
+import { FormProvider } from '../../Context/FormContext/FormContext.jsx';
 
 const CartView = () => {
   const { cart, getTotalItems } = useCart(); // Obtengo el carrito y total de items desde el contexto
-
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return (<>
     <div className="container my-5">
       {cart.length === 0 ? (
@@ -24,9 +27,18 @@ const CartView = () => {
               <span className="badge bg-primary rounded-pill">${(item.price * item.quantity).toFixed(2)} ARS</span>
             </li>
           ))}
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            <h5>Su Precio TOTAL es de: </h5>
+            <h5>$ {total} ARS</h5>
+          </li>
         </ul>
       </div>)}
     </div>
+
+    <FormProvider>
+      <FormData />
+      <AddOrders />
+    </FormProvider>
   </>);
 };
 

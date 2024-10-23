@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, collection, query, where, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, query, where, doc, getDoc, addDoc, updateDoc } from 'firebase/firestore';
+import Swal from 'sweetalert2'
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -60,3 +61,33 @@ export async function getSingleProduct(id) {
 }
 
 export { db };
+
+// Genero Una Orden de compra.
+export async function sendOrder(order) {
+    const ordersCollection = collection(db, 'Orders')
+
+    try {
+        const docRef = await addDoc(ordersCollection, order);
+        Swal.fire({ //Alerta mostrando la generación satisfactoria de mi Orden
+            icon: 'success',
+            title: 'Felicitaciones!',
+            text: `Tu ID de orden de compra es: ` + docRef.id,
+        });
+        return docRef.id
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// Función para actualizar un producto
+
+export async function updateProducts(productId, toUpdate) {
+    const itemRef = doc(db, 'ProductList', productId); // Usamos el ID del producto
+    try {
+        await updateDoc(itemRef, toUpdate);
+        console.log("Producto actualizado con éxito!");
+    } catch (error) {
+        console.log('Error de Actualización:' + error);
+    }
+}
