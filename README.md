@@ -30,11 +30,11 @@ Las dependencias utilizadas en este proyecto, fueron:
 
 ## Estructura del proyecto:
 src/ 
-├── components/ # Componentes reutilizables 
-├── context/ # Context para gestión de datos entre componentes 
-├── views/ # Componentes de la vista de las páginas (Inicio, Catálogo, Checkout) 
-├── Firebase/ # Servicios para interactuar con Firebase 
-└── App.jsx # Componente principal de la aplicación
+├── components/ # Componentes reutilizables.                                                                                                                                                                                  
+├── context/ # Context para gestión de datos entre componentes.                                                                                                                                                               
+├── views/ # Componentes de la vista de las páginas (Inicio, Catálogo, Checkout).                                                                                                                                             
+├── Firebase/ # Servicios para interactuar con Firebase.                                                                                                                                                                      
+└── App.jsx # Componente principal de la aplicación.                                                                                                 
 
 ## Caracteristicas:
 - **Catalogo de Productos**: Los usuarios podrán navegar entre varios productos del tipo "Gamer" como perifericos, componentes y pantallas.
