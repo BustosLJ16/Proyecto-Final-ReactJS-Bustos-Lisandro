@@ -29,7 +29,7 @@ Las dependencias utilizadas en este proyecto, fueron:
 - **AnimatedCSS**: Esta librería fue utilizada pura y exclusivamente para agregar un poco más de dinamismo a la carga de productos, agregando una pequeña animacion en su carga incial.
 
 ## Estructura del proyecto:
-src/ 
+src/                                                                                                                                                                                                                          
 ├── components/ # Componentes reutilizables.                                                                                                                                                                                  
 ├── context/ # Context para gestión de datos entre componentes.                                                                                                                                                               
 ├── views/ # Componentes de la vista de las páginas (Inicio, Catálogo, Checkout).                                                                                                                                             
