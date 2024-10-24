@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import './CartContext.css'
 import { updateProducts } from '../../Firebase/Firebase';
 import Swal from 'sweetalert2';
 

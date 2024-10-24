@@ -1,4 +1,5 @@
 import React from 'react'; 
+import './ItemCount.css'
 import Swal from 'sweetalert2';
 import { usecount } from '../../Hooks/useCount/useCount';
 import { updateProducts } from '../../Firebase/Firebase';

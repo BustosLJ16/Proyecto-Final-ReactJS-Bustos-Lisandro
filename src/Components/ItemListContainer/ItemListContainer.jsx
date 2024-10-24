@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './ItemListContainer.css'
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../../Firebase/Firebase.js';
 import ProductCard from '../../Views/ProductCard/ProductCard.jsx';

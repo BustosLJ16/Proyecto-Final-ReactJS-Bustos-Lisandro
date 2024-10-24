@@ -89,7 +89,6 @@ const FormData = () => {
 
     return (
         <>
-            <div>FormData</div>
             <div className="d-flex justify-content-center align-items-center m-2">
             
                 <form id="formData" className="justify-content-center" onSubmit={handleSubmit}>

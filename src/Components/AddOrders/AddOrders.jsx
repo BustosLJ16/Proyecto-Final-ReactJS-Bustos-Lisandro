@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './AddOrders.css';
 import { sendOrder } from '../../Firebase/Firebase';
 import { FormContext } from '../../Context/FormContext/FormContext';
-import { useCart } from '../../Context/CartContext/CartContext'; // Importa el contexto del carrito
+import { useCart } from '../../Context/CartContext/CartContext'; // Importo el contexto del carrito
 
 export default function AddOrders() {
     const [orderId, setOrderId] = useState(null);
@@ -10,12 +10,12 @@ export default function AddOrders() {
     const { cart } = useCart(); // Obtengo el carrito desde el CartContext
 
     const handleclick = () => {
-        // Mapea los productos del carrito para construir los items de la orden
+        // Mapeo los productos del carrito para construir los items de la orden.
         const items = cart.map(item => ({
-            id: item.key, // Usa el "key" del producto
+            id: item.key,
             title: item.title,
             category: item.category,
-            type: item.type,  // Si tienes un campo "type", asegúrate de que venga en el carrito
+            type: item.type,
             price: item.price,
             quantity: item.quantity
         }));
@@ -42,7 +42,6 @@ export default function AddOrders() {
 
     return (
         <>
-            <div>AddOrders</div>
             {formData.name || formData.lastName ||formData.email || formData.phone ? (
             <>
                 <h5 className='text-center'>2. Envie su orden de compra.</h5>
